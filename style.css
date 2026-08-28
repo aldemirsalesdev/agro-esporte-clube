@@ -63,7 +63,7 @@
   --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Entry splash duration (shifts content fade-in) */
-  --splash: 0.5s;
+  --splash: 2.5s;
 }
 
 
@@ -348,7 +348,7 @@ body {
   height: 147px;
   object-fit: contain;
   filter: drop-shadow(0 0 34px rgba(197, 165, 90, 0.4));
-  animation: splashLogo 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation: splashLogo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -361,8 +361,8 @@ body {
   text-transform: uppercase;
   color: var(--gold-300);
   opacity: 0;
-  animation: splashName 0.5s ease forwards;
-  animation-delay: 0.18s;
+  animation: splashName 0.9s ease forwards;
+  animation-delay: 0.65s;
 }
 
 @keyframes splashLogo {
