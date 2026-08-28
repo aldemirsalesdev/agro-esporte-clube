@@ -752,6 +752,13 @@ body {
   color: var(--gold-400);
 }
 
+/* Ocultar botão de ingressos enquanto não há vendas.
+   Remove esta classe (.link-btn--hidden) quando os jogos voltarem.
+   O restante da configuração (href, rótulos) permanece intacto. */
+.link-btn--hidden {
+  display: none;
+}
+
 
 /* ---- SECONDARY BUTTONS ---- */
 .link-btn--secondary {
