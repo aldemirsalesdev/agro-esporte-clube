@@ -324,6 +324,8 @@ body {
 
 
 /* ---- ENTRY SPLASH ---- */
+/* Fim controlado por JS: .splash--out faz o container inteiro (verde + logo +
+   nome) desaparecer junto via transition; .splash--gone remove do DOM. */
 .splash {
   position: fixed;
   inset: 0;
@@ -334,10 +336,20 @@ body {
   justify-content: center;
   gap: var(--space-lg);
   pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
-/* Full-bleed brand background — fades away BEFORE the logo, so at the end
-   only the logo remains on screen (no green square lingering). */
+.splash.splash--out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash.splash--gone {
+  display: none;
+}
+
+/* Full-bleed brand background — the whole container fades out together, so
+   the green never lingers or reappears after the splash. */
 .splash__bg {
   position: absolute;
   inset: 0;
@@ -347,18 +359,13 @@ body {
     #0d1a10 0%,
     #050c08 75%
   );
-  animation: splashBgOut 0.45s ease forwards;
-  animation-delay: calc(var(--splash) - 0.5s);
 }
 
 .splash__logo {
   width: 110px;
   height: 147px;
   object-fit: contain;
-  animation:
-    splashLogo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards,
-    splashLogoOut 0.35s ease forwards;
-  animation-delay: 0s, calc(var(--splash) - 0.5s);
+  animation: splashLogo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -371,10 +378,8 @@ body {
   text-transform: uppercase;
   color: var(--gold-300);
   opacity: 0;
-  animation:
-    splashName 0.9s ease forwards,
-    splashNameOut 0.3s ease forwards;
-  animation-delay: 0.65s, calc(var(--splash) - 0.5s);
+  animation: splashName 0.9s ease forwards;
+  animation-delay: 0.65s;
 }
 
 @keyframes splashLogo {
@@ -385,18 +390,6 @@ body {
 @keyframes splashName {
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 0.85; transform: translateY(0); }
-}
-
-@keyframes splashBgOut {
-  to { opacity: 0; visibility: hidden; }
-}
-
-@keyframes splashLogoOut {
-  to { opacity: 0; visibility: hidden; }
-}
-
-@keyframes splashNameOut {
-  to { opacity: 0; visibility: hidden; }
 }
 
 

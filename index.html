@@ -226,5 +226,19 @@
     updateHint();
   </script>
 
+  <script>
+    var splash = document.querySelector('.splash');
+    function finishSplash() {
+      if (!splash) return;
+      window.setTimeout(function () {
+        splash.classList.add('splash--out');
+      }, 2350);
+      window.setTimeout(function () {
+        splash.classList.add('splash--gone');
+      }, 2750);
+    }
+    document.addEventListener('DOMContentLoaded', finishSplash);
+  </script>
+
 </body>
 </html>
