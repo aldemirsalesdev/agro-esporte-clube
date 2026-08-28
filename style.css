@@ -334,13 +334,21 @@ body {
   justify-content: center;
   gap: var(--space-lg);
   pointer-events: none;
+}
+
+/* Full-bleed brand background — fades away BEFORE the logo, so at the end
+   only the logo remains on screen (no green square lingering). */
+.splash__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: radial-gradient(
     ellipse 120% 90% at 50% 50%,
     #0d1a10 0%,
     #050c08 75%
   );
-  animation: splashOut 0.3s ease forwards;
-  animation-delay: calc(var(--splash) - 0.02s);
+  animation: splashBgOut 0.45s ease forwards;
+  animation-delay: calc(var(--splash) - 0.5s);
 }
 
 .splash__logo {
@@ -348,7 +356,10 @@ body {
   height: 147px;
   object-fit: contain;
   filter: drop-shadow(0 0 34px rgba(197, 165, 90, 0.4));
-  animation: splashLogo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation:
+    splashLogo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards,
+    splashLogoOut 0.35s ease forwards;
+  animation-delay: 0s, var(--splash);
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -361,8 +372,10 @@ body {
   text-transform: uppercase;
   color: var(--gold-300);
   opacity: 0;
-  animation: splashName 0.9s ease forwards;
-  animation-delay: 0.65s;
+  animation:
+    splashName 0.9s ease forwards,
+    splashNameOut 0.3s ease forwards;
+  animation-delay: 0.65s, calc(var(--splash) - 0.35s);
 }
 
 @keyframes splashLogo {
@@ -376,7 +389,15 @@ body {
   100% { opacity: 0.85; transform: translateY(0); }
 }
 
-@keyframes splashOut {
+@keyframes splashBgOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes splashLogoOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes splashNameOut {
   to { opacity: 0; visibility: hidden; }
 }
 
