@@ -882,6 +882,20 @@ body {
   opacity: 0.5;
 }
 
+.footer__rights {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(240, 234, 214, 0.45);
+  margin-top: var(--space-xs);
+}
+
+@media (max-width: 480px) {
+  .footer__rights {
+    font-size: 0.55rem;
+  }
+}
+
 
 /* ---- FADE-IN ANIMATIONS ---- */
 /* After the entrance finishes, the element returns to its resting style
