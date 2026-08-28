@@ -62,8 +62,8 @@
   --transition-med: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Entry splash duration (shifts content fade-in) */
-  --splash: 2.5s;
+  /* Entry splash duration (shifts content fade-in) — total ~3s with fade-out */
+  --splash: 2.7s;
 }
 
 
@@ -1140,29 +1140,11 @@ body {
 }
 
 
-/* Skip splash on repeat visits in the same session (script adds html.splash--skipped) */
-html.splash--skipped {
-  --splash: 0s;
-}
+/* ==== Shared rules / reduced motion ====
+   Product decision: the brand intro and ambient animations stay on in every
+   environment, so this only removes the low-height scroll hint. */
 
-html.splash--skipped .splash {
-  display: none;
-}
-
-
-/* ---- REDUCED MOTION ---- */
-/* Product decision: the ambient animations are subtle and short (~0.5s / tiny
-   offsets), so this block only skips the entry splash. Every other effect
-   runs at the same speed in every environment — nothing gets frozen. */
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --splash: 0s;
-  }
-
-  .splash {
-    display: none;
-  }
-
   .scroll-hint {
     display: none !important;
   }

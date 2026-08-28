@@ -208,12 +208,6 @@
   </div>
 
   <script>
-    if (sessionStorage.getItem('agro-splash')) {
-      document.documentElement.classList.add('splash--skipped');
-    } else {
-      sessionStorage.setItem('agro-splash', '1');
-    }
-
     var hint = document.getElementById('scroll-hint');
     function updateHint() {
       if (!hint) return;
