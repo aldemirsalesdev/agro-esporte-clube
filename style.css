@@ -434,6 +434,7 @@ body {
 /* Shield entrance: gentle opacity fade only — no rise, no jumping */
 .shield-wrapper.fade-in {
   animation: fadeIn 0.7s ease-out backwards;
+  animation-delay: calc(var(--splash) - 0.5s);
 }
 
 @keyframes fadeIn {
@@ -591,6 +592,7 @@ body {
   animation:
     fadeInUp 0.7s ease-out backwards,
     cardGlow 3s ease-in-out infinite alternate;
+  animation-delay: calc(var(--splash) - 0.5s);
 }
 /* Slow ambient green/gold breathing around the card (very subtle) */
 @keyframes cardGlow {
