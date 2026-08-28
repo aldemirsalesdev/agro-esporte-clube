@@ -358,7 +358,7 @@ body {
   animation:
     splashLogo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards,
     splashLogoOut 0.35s ease forwards;
-  animation-delay: 0s, var(--splash);
+  animation-delay: 0s, calc(var(--splash) - 0.5s);
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -374,7 +374,7 @@ body {
   animation:
     splashName 0.9s ease forwards,
     splashNameOut 0.3s ease forwards;
-  animation-delay: 0.65s, calc(var(--splash) - 0.35s);
+  animation-delay: 0.65s, calc(var(--splash) - 0.5s);
 }
 
 @keyframes splashLogo {
