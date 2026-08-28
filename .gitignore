@@ -1,0 +1,10 @@
+# Local captures used only during development
+2026-*.png
+
+# Original source photo (superseded by bg-blur.jpg; not served by the page)
+background.jpg
+
+# OS / editor cruft
+Thumbs.db
+Desktop.ini
+.DS_Store
